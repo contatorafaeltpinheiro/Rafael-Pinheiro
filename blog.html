@@ -1,57 +1,214 @@
-# Pasta `assets/`
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conteúdo | Rafael Pinheiro — Estratégias Patrimoniais</title>
+  <meta name="description" content="Artigos e guias práticos sobre planejamento patrimonial, consórcio, financiamento e decisões financeiras inteligentes.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.seudominio.com.br/blog.html">
 
-Este guia explica o que colocar em cada subpasta. **Você não precisa editar nenhum
-código** — basta salvar o arquivo com o nome exato indicado abaixo, dentro da pasta
-certa, e ele aparece automaticamente no site (o layout já está preparado para isso).
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Conteúdo | Rafael Pinheiro — Estratégias Patrimoniais">
+  <meta property="og:description" content="Educação patrimonial, direto ao ponto: consórcio, financiamento e planejamento.">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://www.seudominio.com.br/blog.html">
+  <meta property="og:image" content="https://www.seudominio.com.br/assets/images/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-## `images/` — Fotografias reais (a prioridade nº 1)
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
 
-O briefing é claro: nada de banco de imagens genérico. Até que as fotos reais
-cheguem, cada espaço mostra um painel grafite/preto elegante com uma legenda
-discreta dizendo qual foto deve entrar ali — assim que você salvar o arquivo
-com o nome certo, a foto substitui o painel automaticamente.
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,450;0,9..144,560;0,9..144,650;1,9..144,500&display=swap" rel="stylesheet">
 
-| Nome do arquivo                        | Onde aparece              | Cena sugerida (do briefing)                  | Proporção   |
-|-----------------------------------------|----------------------------|-----------------------------------------------|-------------|
-| `hero-executivo-cidade.jpg`             | Topo da Home (hero)        | Executivo observando a cidade ao entardecer   | 16:9 grande |
-| `solucao-imoveis.jpg`                   | Card "Imóveis"              | Família entrando em uma casa                  | 4:3         |
-| `solucao-veiculos.jpg`                  | Card "Veículos"             | Casal recebendo as chaves                     | 4:3         |
-| `solucao-caminhoes.jpg`                 | Card "Caminhões"            | Empresário olhando caminhões                  | 4:3         |
-| `solucao-maquinas.jpg`                  | Card "Máquinas Agrícolas"   | Produtor rural olhando máquinas               | 4:3         |
-| `solucao-empresas.jpg`                  | Card "Empresas"             | Escritório moderno                            | 4:3         |
-| `solucao-investimentos.jpg`             | Card "Investimentos"        | Cliente assinando documentos                  | 4:3         |
-| `sobre-rafael.jpg`                      | Teaser "Sobre" na Home      | Retrato de Rafael                             | 3:4         |
-| `sobre-rafael-retrato.jpg`              | Página Sobre                | Rafael em reunião com cliente                 | 4:5         |
-| `blog-financiamento-consorcio.jpg`      | Artigo do blog              | Escritório moderno                            | 16:10       |
-| `blog-sair-do-aluguel.jpg`              | Artigo do blog              | Família entrando em uma casa                  | 16:10       |
-| `blog-lance-embutido.jpg`               | Artigo do blog              | Cliente assinando documentos                  | 16:10       |
-| `blog-consorcio-caminhao.jpg`           | Artigo do blog              | Caminhão em operação                          | 16:10       |
-| `blog-contemplacao.jpg`                 | Artigo do blog              | Documentos / assinatura                       | 16:10       |
-| `blog-maquinas-agricolas.jpg`           | Artigo do blog              | Máquinas agrícolas em uso                     | 16:10       |
-| `og-cover.jpg`                          | Pré-visualização em redes   | Uma imagem de marca (pode repetir a do hero)  | 1200×630    |
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
 
-Dicas de performance: exporte em `.jpg` ou `.webp`, comprima antes de subir
-(ex.: [squoosh.app](https://squoosh.app)) e evite arquivos acima de 300–400 KB.
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="brand">
+        <span class="brand__name">RAFAEL PINHEIRO</span>
+        <span class="brand__tagline">Estratégias Patrimoniais</span>
+      </a>
+      <nav class="nav" aria-label="Navegação principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Início</a></li>
+          <li><a class="nav__link" href="estrategias.html">Estratégias</a></li>
+          <li><a class="nav__link" href="sobre.html">Sobre</a></li>
+          <li><a class="nav__link" href="blog.html" aria-current="page">Conteúdo</a></li>
+          <li><a class="nav__link" href="contato.html">Contato</a></li>
+        </ul>
+        <a href="index.html#diagnostico" class="btn btn--primary btn--sm">Diagnóstico Patrimonial</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-## `icons/`
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Navegação mobile">
+    <button class="mobile-nav__close" aria-label="Fechar menu"><span></span><span></span></button>
+    <ul class="mobile-nav__list">
+      <li><a class="mobile-nav__link" href="index.html">Início</a></li>
+      <li><a class="mobile-nav__link" href="estrategias.html">Estratégias</a></li>
+      <li><a class="mobile-nav__link" href="sobre.html">Sobre</a></li>
+      <li><a class="mobile-nav__link" href="blog.html">Conteúdo</a></li>
+      <li><a class="mobile-nav__link" href="contato.html">Contato</a></li>
+    </ul>
+    <a href="index.html#diagnostico" class="btn btn--outline-light">Diagnóstico Patrimonial</a>
+  </nav>
 
-Já contém `favicon.svg` (o monograma "RP"), usado na aba do navegador. A
-maioria dos ícones do site (setas, WhatsApp, Instagram, menu) está embutida
-diretamente no HTML como SVG — isso deixa o site mais rápido, sem depender de
-arquivos extras. Use esta pasta se quiser adicionar ícones próprios no futuro.
+  <main id="conteudo-principal">
+    <section class="page-header">
+      <div class="container">
+        <span class="eyebrow">Conteúdo</span>
+        <h1>Educação patrimonial, direto ao ponto.</h1>
+        <p>Artigos e guias práticos sobre planejamento patrimonial, consórcio e decisões financeiras inteligentes. Em breve, também em vídeo.</p>
+      </div>
+    </section>
 
-## `fonts/`
+    <section class="section section--white">
+      <div class="container">
+        <div class="blog__grid reveal">
+          <article class="card article-card">
+            <div class="photo-frame" role="img" aria-label="Ilustração sobre financiamento e consórcio" data-caption="Escritório moderno">
+              <img src="assets/images/blog-financiamento-consorcio.jpg" alt="" loading="lazy">
+            </div>
+            <div class="card__body">
+              <div class="article-card__meta"><span class="tag">Financiamento</span></div>
+              <h3>Financiamento ou consórcio: qual escolher em 2026?</h3>
+              <p>Um comparativo direto entre as duas modalidades, sem viés — para você decidir com clareza.</p>
+              <span class="article-card__soon">Em breve</span>
+            </div>
+          </article>
 
-Por padrão, o site carrega as fontes **Playfair Display** e **Inter** direto
-do Google Fonts (via link no `<head>` de cada página) — é a forma mais simples
-e rápida de começar. Se no futuro você quiser hospedar as fontes localmente
-(por performance, privacidade ou uso offline), baixe os arquivos `.woff2`,
-salve aqui e troque o `<link>` do Google Fonts por `@font-face` no
-`variables.css`.
+          <article class="card article-card">
+            <div class="photo-frame" role="img" aria-label="Ilustração sobre sair do aluguel" data-caption="Família entrando em uma casa">
+              <img src="assets/images/blog-sair-do-aluguel.jpg" alt="" loading="lazy">
+            </div>
+            <div class="card__body">
+              <div class="article-card__meta"><span class="tag">Imóveis</span></div>
+              <h3>Como sair do aluguel com planejamento</h3>
+              <p>O caminho realista para conquistar o primeiro imóvel sem comprometer o orçamento.</p>
+              <span class="article-card__soon">Em breve</span>
+            </div>
+          </article>
 
-## `videos/`
+          <article class="card article-card">
+            <div class="photo-frame" role="img" aria-label="Ilustração sobre lance embutido" data-caption="Cliente assinando documentos">
+              <img src="assets/images/blog-lance-embutido.jpg" alt="" loading="lazy">
+            </div>
+            <div class="card__body">
+              <div class="article-card__meta"><span class="tag">Consórcio</span></div>
+              <h3>Lance embutido: o que é e quando vale a pena</h3>
+              <p>Entenda como essa estratégia pode antecipar sua contemplação sem usar recursos extras.</p>
+              <span class="article-card__soon">Em breve</span>
+            </div>
+          </article>
 
-Reservada para o futuro: a seção de Depoimentos foi pensada para, no seu
-próximo passo, priorizar vídeos de clientes reais (é o que a marca pede).
-Basta adicionar os arquivos aqui e trocar o bloco de texto do depoimento por
-uma tag `<video>`.
+          <article class="card article-card">
+            <div class="photo-frame" role="img" aria-label="Ilustração sobre consórcio de caminhão" data-caption="Caminhão em operação">
+              <img src="assets/images/blog-consorcio-caminhao.jpg" alt="" loading="lazy">
+            </div>
+            <div class="card__body">
+              <div class="article-card__meta"><span class="tag">Caminhões</span></div>
+              <h3>Consórcio de caminhão: como expandir a frota sem juros</h3>
+              <p>Uma estratégia para transportadores e autônomos que pensam em crescer com segurança.</p>
+              <span class="article-card__soon">Em breve</span>
+            </div>
+          </article>
+
+          <article class="card article-card">
+            <div class="photo-frame" role="img" aria-label="Ilustração sobre contemplação por sorteio ou lance" data-caption="Documentos de contemplação">
+              <img src="assets/images/blog-contemplacao.jpg" alt="" loading="lazy">
+            </div>
+            <div class="card__body">
+              <div class="article-card__meta"><span class="tag">Contemplação</span></div>
+              <h3>Sorteio ou lance: entenda as diferenças</h3>
+              <p>As duas formas de contemplação explicadas de forma simples e direta.</p>
+              <span class="article-card__soon">Em breve</span>
+            </div>
+          </article>
+
+          <article class="card article-card">
+            <div class="photo-frame" role="img" aria-label="Ilustração sobre máquinas agrícolas" data-caption="Máquinas agrícolas em uso">
+              <img src="assets/images/blog-maquinas-agricolas.jpg" alt="" loading="lazy">
+            </div>
+            <div class="card__body">
+              <div class="article-card__meta"><span class="tag">Agro</span></div>
+              <h3>Máquinas agrícolas: financiar, comprar à vista ou consórcio?</h3>
+              <p>Um raio-x das três formas de aquisição para o produtor rural.</p>
+              <span class="article-card__soon">Em breve</span>
+            </div>
+          </article>
+        </div>
+
+        <p class="comp-note reveal" style="margin-top: var(--space-5); text-align:center; margin-inline:auto">Enquanto os artigos completos não chegam, acompanhe novidades no <a class="js-wa-link" style="text-decoration:underline; color:var(--c-graphite-900)" href="https://instagram.com/seuinstagram" target="_blank" rel="noopener">Instagram</a> ou fale direto com Rafael no WhatsApp.</p>
+      </div>
+    </section>
+
+    <section class="section cta-final">
+      <div class="container reveal">
+        <h2>Tem uma dúvida que não está aqui?</h2>
+        <p>Pergunte direto para Rafael.</p>
+        <a href="https://wa.me/5553991790766" class="btn btn--primary js-wa-link" data-wa-message="Olá, Rafael! Tenho uma dúvida sobre planejamento patrimonial.">Falar no WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <span class="brand__name">RAFAEL PINHEIRO</span>
+          <p>Estratégias patrimoniais para famílias, empresários e produtores rurais. O consórcio como uma das ferramentas do seu planejamento.</p>
+          <div class="footer__social">
+            <a href="https://instagram.com/seuinstagram" target="_blank" rel="noopener" aria-label="Instagram de Rafael Pinheiro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+          </div>
+          <p class="footer__note">YouTube em breve.</p>
+        </div>
+        <div>
+          <h2 class="footer__heading">Contato</h2>
+          <ul>
+            <li><a href="https://wa.me/5553991790766" class="js-wa-link" data-wa-message="Olá, Rafael! Vim pelo site e gostaria de falar com você.">WhatsApp</a></li>
+            <li><a href="mailto:contato@seudominio.com.br">contato@seudominio.com.br</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer__heading">Navegação</h2>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="estrategias.html">Estratégias</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="blog.html">Conteúdo</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer__heading">Escritório</h2>
+          <ul>
+            <li>Atendimento em todo o Brasil</li>
+            <li>Presencial mediante agendamento</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2026</span> Rafael Pinheiro — Estratégias Patrimoniais. Todos os direitos reservados.</span>
+        <span>Planejamento patrimonial · Consórcio como ferramenta de estratégia</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/animations.js" defer></script>
+</body>
+</html>

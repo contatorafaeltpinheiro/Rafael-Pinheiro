@@ -1,246 +1,760 @@
-/* ==========================================================================
-   components.css — Peças reutilizáveis da interface
-   ========================================================================== */
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rafael Pinheiro | Estratégias Patrimoniais</title>
+  <meta name="description" content="Planejamento patrimonial para famílias, empresários e produtores rurais. Estratégia, clareza e método nas suas decisões financeiras — o consórcio como uma das ferramentas do plano.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.seudominio.com.br/index.html">
 
-/* Utilitários --------------------------------------------------------------- */
-.container {
-  width: 100%;
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: var(--container-pad);
-}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rafael Pinheiro | Estratégias Patrimoniais">
+  <meta property="og:description" content="Planejamento patrimonial para famílias, empresários e produtores rurais. Estratégia antes de qualquer decisão financeira.">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://www.seudominio.com.br/index.html">
+  <meta property="og:image" content="https://www.seudominio.com.br/assets/images/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-.sr-only {
-  position: absolute;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border: 0;
-}
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
 
-.skip-link {
-  position: absolute;
-  left: var(--space-2);
-  top: -80px;
-  background: var(--c-black);
-  color: var(--c-white);
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-sm);
-  z-index: 999;
-  transition: top var(--t-fast);
-}
-.skip-link:focus { top: var(--space-2); }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,450;0,9..144,560;0,9..144,650;1,9..144,500&display=swap" rel="stylesheet">
 
-/* Revelação suave ao rolar (usada com animations.js) ------------------------- */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity var(--t-slow), transform var(--t-slow); }
-.reveal.is-visible { opacity: 1; transform: none; }
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
 
-/* Eyebrow (rótulo pequeno acima dos títulos) ---------------------------------- */
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-  font-family: var(--font-sans);
-  font-size: var(--fs-xs);
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--c-graphite-500);
-  margin-bottom: var(--space-2);
-}
-.eyebrow::before {
-  content: '';
-  width: 22px;
-  height: 2px;
-  background: var(--c-gold-deep);
-  display: inline-block;
-}
-.section--dark .eyebrow { color: var(--c-gold); }
-.section--dark .eyebrow::before { background: var(--c-gold); }
+  <!-- ============================= HEADER ============================= -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="brand">
+        <span class="brand__name">RAFAEL PINHEIRO</span>
+        <span class="brand__tagline">Estratégias Patrimoniais</span>
+      </a>
 
-/* Botões ------------------------------------------------------------------------ */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-1);
-  padding: .9rem 1.75rem;
-  font-size: var(--fs-small);
-  font-weight: 600;
-  letter-spacing: .02em;
-  border-radius: var(--radius-sm);
-  border: 1px solid transparent;
-  transition: background var(--t-base), color var(--t-base), border-color var(--t-base), transform var(--t-fast);
-  white-space: nowrap;
-}
-.btn svg { width: 18px; height: 18px; flex-shrink: 0; }
-.btn:active { transform: translateY(1px); }
+      <nav class="nav" aria-label="Navegação principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html" aria-current="page">Início</a></li>
+          <li><a class="nav__link" href="estrategias.html">Estratégias</a></li>
+          <li><a class="nav__link" href="sobre.html">Sobre</a></li>
+          <li><a class="nav__link" href="blog.html">Conteúdo</a></li>
+          <li><a class="nav__link" href="contato.html">Contato</a></li>
+        </ul>
+        <a href="#diagnostico" class="btn btn--primary btn--sm">Diagnóstico Patrimonial</a>
+      </nav>
 
-.btn--primary { background: var(--c-green-900); color: var(--c-white); }
-.btn--primary:hover { background: var(--c-green-700); }
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-.btn--outline-light { background: transparent; color: var(--c-white); border-color: rgba(255,255,255,.55); }
-.btn--outline-light:hover { border-color: var(--c-white); background: rgba(255,255,255,.08); }
+  <!-- ============================= MENU MOBILE ============================= -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Navegação mobile">
+    <button class="mobile-nav__close" aria-label="Fechar menu"><span></span><span></span></button>
+    <ul class="mobile-nav__list">
+      <li><a class="mobile-nav__link" href="index.html">Início</a></li>
+      <li><a class="mobile-nav__link" href="estrategias.html">Estratégias</a></li>
+      <li><a class="mobile-nav__link" href="sobre.html">Sobre</a></li>
+      <li><a class="mobile-nav__link" href="blog.html">Conteúdo</a></li>
+      <li><a class="mobile-nav__link" href="contato.html">Contato</a></li>
+    </ul>
+    <a href="#diagnostico" class="btn btn--outline-light">Diagnóstico Patrimonial</a>
+  </nav>
 
-.btn--outline-dark { background: transparent; color: var(--c-graphite-900); border-color: var(--c-graphite-900); }
-.btn--outline-dark:hover { background: var(--c-graphite-900); color: var(--c-white); }
+  <main id="conteudo-principal">
 
-.btn--sm { padding: .65rem 1.25rem; font-size: var(--fs-xs); }
-.btn--block { width: 100%; }
-.btn[disabled] { opacity: .5; cursor: not-allowed; }
+    <!-- ============================= HERO ============================= -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero__content">
+          <span class="hero-badge">Planejamento Patrimonial</span>
+          <h1 class="hero__title">Construa patrimônio com estratégia, não por impulso.</h1>
+          <p class="hero__subtitle">Ajudo famílias, empresários e produtores rurais a tomar decisões patrimoniais mais inteligentes por meio de planejamento, educação financeira e estratégia — muito antes da compra.</p>
+          <div class="hero__actions">
+            <a href="#diagnostico" class="btn btn--primary">Fazer Diagnóstico Patrimonial</a>
+            <a href="estrategias.html" class="btn btn--outline-light">Conhecer estratégias</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat"><strong>Visão</strong><span>Longo prazo</span></div>
+            <div class="hero-stat"><strong>Estratégia</strong><span>Antes da decisão</span></div>
+            <div class="hero-stat"><strong>Patrimônio</strong><span>Como objetivo</span></div>
+          </div>
+        </div>
+        <div class="hero-media">
+          <div class="photo-frame" role="img" aria-label="Rafael Pinheiro em ambiente profissional" data-caption="Foto profissional de Rafael">
+            <img src="assets/images/hero-executivo-cidade.jpg" alt="Rafael Pinheiro em ambiente profissional" loading="eager" fetchpriority="high">
+          </div>
+          <div class="floating-card">
+            <h4>Cada patrimônio começa com uma boa decisão.</h4>
+            <p>Antes de escolher qualquer produto financeiro, vale entender qual estratégia faz mais sentido para o seu momento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-.link-arrow {
-  display: inline-flex;
-  align-items: center;
-  gap: .4rem;
-  font-size: var(--fs-small);
-  font-weight: 600;
-  color: var(--c-graphite-900);
-  border-bottom: 1px solid var(--c-gold-deep);
-  padding-bottom: 2px;
-  transition: gap var(--t-fast), color var(--t-fast);
-}
-.link-arrow:hover { gap: .65rem; color: var(--c-green-900); }
-.link-arrow svg { width: 14px; height: 14px; }
+    <!-- ============================= POSICIONAMENTO ============================= -->
+    <section class="positioning">
+      <div class="container">
+        <h2 class="sr-only">Nosso posicionamento</h2>
+        <div class="positioning__grid reveal">
+          <div class="positioning__col positioning__col--not">
+            <h2>Não somos</h2>
+            <ul>
+              <li>Vendedores de cotas</li>
+              <li>Vendedores de parcelas</li>
+              <li>Vendedores de grupos</li>
+              <li>Vendedores de consórcio</li>
+            </ul>
+          </div>
+          <div class="positioning__col positioning__col--yes">
+            <h2>Somos</h2>
+            <ul>
+              <li>Consultores especializados em planejamento patrimonial</li>
+              <li>Parceiros de famílias, empresários e produtores rurais na tomada de decisões financeiras mais inteligentes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-/* Cards -------------------------------------------------------------------------- */
-.card {
-  background: var(--c-white);
-  border: 1px solid var(--c-line);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  transition: box-shadow var(--t-base), transform var(--t-base), border-color var(--t-base);
-}
-.card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); border-color: transparent; }
-.card__body { padding: var(--space-3); }
-.card__title { font-family: var(--font-serif); font-size: var(--fs-h4); font-weight: 600; margin-bottom: var(--space-1); }
-.card__text { color: var(--c-graphite-500); font-size: var(--fs-small); line-height: var(--lh-relaxed); }
+    <!-- ============================= PROBLEMA ============================= -->
+    <section class="section section--ivory" id="problema">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Antes de qualquer decisão</span>
+          <h2>Planejamento vale mais do que impulso.</h2>
+          <p>A maioria dos erros patrimoniais não acontece na hora da compra — acontece antes, na ausência de estratégia.</p>
+        </div>
 
-/* Photo frame — placeholder elegante com fallback automático --------------------- */
-.photo-frame {
-  position: relative;
-  background: linear-gradient(135deg, var(--c-graphite-700) 0%, var(--c-black) 100%);
-  overflow: hidden;
-  isolation: isolate;
-}
-.photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.photo-frame::after {
-  content: attr(data-caption);
-  position: absolute;
-  left: var(--space-2);
-  bottom: var(--space-2);
-  font-family: var(--font-sans);
-  font-size: .6875rem;
-  letter-spacing: .03em;
-  color: rgba(255,255,255,.65);
-  background: rgba(11,11,13,.4);
-  padding: 5px 10px;
-  border-radius: var(--radius-sm);
-  pointer-events: none;
-  backdrop-filter: blur(2px);
-}
-.photo-frame::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 1px solid rgba(201,169,97,.25);
-  pointer-events: none;
-  z-index: 1;
-}
+        <div class="problem__grid reveal">
+          <div class="problem__item">
+            <span class="problem__mark">01</span>
+            <div>
+              <h3>Comprar por impulso</h3>
+              <p>Decisões tomadas sob pressão custam caro no longo prazo.</p>
+            </div>
+          </div>
+          <div class="problem__item">
+            <span class="problem__mark">02</span>
+            <div>
+              <h3>Aceitar a primeira proposta</h3>
+              <p>Sem comparar cenários, é impossível saber se é a melhor escolha.</p>
+            </div>
+          </div>
+          <div class="problem__item">
+            <span class="problem__mark">03</span>
+            <div>
+              <h3>Escolher o financiamento antes da estratégia</h3>
+              <p>A forma de pagamento deveria ser consequência do plano — não o ponto de partida.</p>
+            </div>
+          </div>
+          <div class="problem__item">
+            <span class="problem__mark">04</span>
+            <div>
+              <h3>Falta de planejamento</h3>
+              <p>Patrimônio sólido é construído com método, não com pressa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-/* Badges / tags --------------------------------------------------------------------- */
-.tag {
-  display: inline-block;
-  font-size: var(--fs-xs);
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--c-graphite-900);
-  background: var(--c-gold-tint);
-  padding: 4px 10px;
-  border-radius: var(--radius-sm);
-}
-.tag--muted { background: var(--c-graphite-100); color: var(--c-graphite-500); }
+    <!-- ============================= SOLUÇÕES ============================= -->
+    <section class="section section--white" id="solucoes">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Áreas de atuação</span>
+          <h2>Estratégia para cada tipo de patrimônio.</h2>
+        </div>
 
-/* Formulários ------------------------------------------------------------------------ */
-.field { margin-bottom: var(--space-3); text-align: left; }
-.field label {
-  display: block;
-  font-size: var(--fs-xs);
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: var(--c-graphite-500);
-  margin-bottom: var(--space-1);
-}
-.field input, .field select, .field textarea {
-  width: 100%;
-  padding: .85rem 1rem;
-  background: var(--c-white);
-  border: 1px solid var(--c-line);
-  border-radius: var(--radius-sm);
-  font-size: var(--fs-body);
-  color: var(--c-graphite-900);
-  transition: border-color var(--t-fast), box-shadow var(--t-fast);
-}
-.field input:focus, .field select:focus, .field textarea:focus {
-  outline: none;
-  border-color: var(--c-green-900);
-  box-shadow: 0 0 0 3px rgba(18,51,42,.12);
-}
-.field textarea { resize: vertical; min-height: 120px; }
-.field-hint { font-size: var(--fs-xs); color: var(--c-graphite-300); margin-top: 4px; }
-.field-error { font-size: var(--fs-xs); color: var(--c-error); margin-top: 4px; display: none; }
-.field.is-invalid input, .field.is-invalid select, .field.is-invalid textarea { border-color: var(--c-error); }
-.field.is-invalid .field-error { display: block; }
+        <div class="solucoes__grid reveal">
+          <article class="card solution-card">
+            <div class="photo-frame" role="img" aria-label="Família entrando em uma casa nova" data-caption="Família entrando em uma casa nova">
+              <img src="assets/images/solucao-imoveis.jpg" alt="Família entrando em uma casa nova" loading="lazy">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Imóveis</h3>
+              <p class="card__text">Compra, construção ou reforma com planejamento — sem comprometer sua liquidez.</p>
+              <a class="link-arrow" href="estrategias.html#imoveis">Ver estratégias <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            </div>
+          </article>
 
-/* FAQ — accordion nativo (details/summary), sem necessidade de JS -------------------- */
-.faq-item { border-bottom: 1px solid var(--c-line); padding: var(--space-3) 0; }
-.faq-item summary {
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-2);
-  font-family: var(--font-serif);
-  font-size: var(--fs-h4);
-  font-weight: 500;
-}
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary .faq-icon {
-  flex-shrink: 0;
-  width: 28px; height: 28px;
-  border: 1px solid var(--c-graphite-300);
-  border-radius: 50%;
-  position: relative;
-  transition: transform var(--t-base), border-color var(--t-base);
-}
-.faq-item summary .faq-icon::before, .faq-item summary .faq-icon::after {
-  content: '';
-  position: absolute;
-  background: var(--c-graphite-900);
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-}
-.faq-item summary .faq-icon::before { width: 10px; height: 1px; }
-.faq-item summary .faq-icon::after { width: 1px; height: 10px; transition: opacity var(--t-fast); }
-.faq-item[open] summary .faq-icon { border-color: var(--c-gold-deep); transform: rotate(180deg); }
-.faq-item[open] summary .faq-icon::after { opacity: 0; }
-.faq-item__content { padding-top: var(--space-2); color: var(--c-graphite-500); line-height: var(--lh-relaxed); max-width: 62ch; }
+          <article class="card solution-card">
+            <div class="photo-frame" role="img" aria-label="Casal recebendo as chaves do veículo novo" data-caption="Casal recebendo as chaves">
+              <img src="assets/images/solucao-veiculos.jpg" alt="Casal recebendo as chaves do veículo novo" loading="lazy">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Veículos</h3>
+              <p class="card__text">O momento certo para adquirir ou trocar, dentro da sua estratégia patrimonial.</p>
+              <a class="link-arrow" href="estrategias.html#veiculos">Ver estratégias <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            </div>
+          </article>
 
-/* Números da seção "Como Funciona" --------------------------------------------------- */
-.step-number { display: block; font-family: var(--font-serif); font-size: 1.75rem; color: var(--c-gold-deep); margin-bottom: var(--space-1); }
+          <article class="card solution-card">
+            <div class="photo-frame" role="img" aria-label="Empresário observando caminhões em operação" data-caption="Empresário observando caminhões">
+              <img src="assets/images/solucao-caminhoes.jpg" alt="Empresário observando caminhões em operação" loading="lazy">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Caminhões</h3>
+              <p class="card__text">Expansão de frota pensada para o crescimento sustentável do seu negócio.</p>
+              <a class="link-arrow" href="estrategias.html#caminhoes">Ver estratégias <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            </div>
+          </article>
 
-/* Callout — nota destacada para o cliente preencher depois --------------------------- */
-.callout {
-  border: 1px dashed var(--c-graphite-300);
-  border-radius: var(--radius-md);
-  padding: var(--space-3);
-  font-size: var(--fs-small);
-  color: var(--c-graphite-500);
-  font-style: italic;
-  background: rgba(201,169,97,.05);
-}
+          <article class="card solution-card">
+            <div class="photo-frame" role="img" aria-label="Produtor rural observando máquinas agrícolas" data-caption="Produtor rural olhando máquinas">
+              <img src="assets/images/solucao-maquinas.jpg" alt="Produtor rural observando máquinas agrícolas" loading="lazy">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Máquinas Agrícolas</h3>
+              <p class="card__text">Tecnologia e produtividade no campo, com o melhor custo-benefício.</p>
+              <a class="link-arrow" href="estrategias.html#maquinas">Ver estratégias <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            </div>
+          </article>
+
+          <article class="card solution-card">
+            <div class="photo-frame" role="img" aria-label="Escritório moderno de uma empresa" data-caption="Escritório moderno">
+              <img src="assets/images/solucao-empresas.jpg" alt="Escritório moderno de uma empresa" loading="lazy">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Empresas</h3>
+              <p class="card__text">Aquisição de bens e equipamentos para empresas que pensam em longo prazo.</p>
+              <a class="link-arrow" href="estrategias.html#empresas">Ver estratégias <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            </div>
+          </article>
+
+          <article class="card solution-card">
+            <div class="photo-frame" role="img" aria-label="Cliente assinando documentos com Rafael" data-caption="Cliente assinando documentos">
+              <img src="assets/images/solucao-investimentos.jpg" alt="Cliente assinando documentos com Rafael" loading="lazy">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Investimentos</h3>
+              <p class="card__text">Consórcio como ferramenta de investimento — disciplina e retorno patrimonial.</p>
+              <a class="link-arrow" href="estrategias.html#investimentos">Ver estratégias <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= QUEM EU AJUDO ============================= -->
+    <section class="section section--ivory" id="publico">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Para quem</span>
+          <h2>Estratégias patrimoniais para diferentes momentos da vida.</h2>
+          <p>Cada objetivo exige uma estratégia diferente. O foco não é vender um produto, mas encontrar a solução mais adequada para cada realidade.</p>
+        </div>
+
+        <div class="audience-grid reveal">
+          <article class="card audience-card">
+            <div class="audience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></div>
+            <h3>Quem deseja o primeiro imóvel</h3>
+            <p>Planejamento para adquirir o imóvel com equilíbrio financeiro e visão de longo prazo.</p>
+          </article>
+          <article class="card audience-card">
+            <div class="audience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M14 8h6v6"/></svg></div>
+            <h3>Investidores</h3>
+            <p>Estratégias para ampliar patrimônio utilizando ferramentas financeiras de forma inteligente.</p>
+          </article>
+          <article class="card audience-card">
+            <div class="audience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="12"/><path d="M9 21V9M4 9l8-6 8 6"/></svg></div>
+            <h3>Empresários</h3>
+            <p>Planejamento para expansão patrimonial, aquisição de ativos e organização financeira.</p>
+          </article>
+          <article class="card audience-card">
+            <div class="audience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l3-8h10l3 8"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg></div>
+            <h3>Produtores rurais</h3>
+            <p>Soluções para expansão da produção, máquinas, equipamentos e fortalecimento do patrimônio.</p>
+          </article>
+          <article class="card audience-card">
+            <div class="audience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="15" height="9"/><path d="M18 12h3l-2-4h-1z"/><circle cx="7.5" cy="18" r="1.4"/><circle cx="17" cy="18" r="1.4"/></svg></div>
+            <h3>Quem deseja trocar de veículo</h3>
+            <p>Planejamento para realizar a troca no momento adequado, preservando o fluxo financeiro.</p>
+          </article>
+          <article class="card audience-card">
+            <div class="audience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="8" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2.2.9-4.1 2.3-5.4"/></svg></div>
+            <h3>Famílias que pensam no futuro</h3>
+            <p>Organização patrimonial e planejamento para construir segurança ao longo dos próximos anos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= DIAGNÓSTICO PATRIMONIAL ============================= -->
+    <section class="section diagnostico" id="diagnostico">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">Diagnóstico gratuito</span>
+          <h2>Descubra a estratégia certa para o seu patrimônio.</h2>
+          <p>5 perguntas simples para entender seu objetivo e sugerir o melhor caminho. Sem compromisso.</p>
+        </div>
+
+        <div class="diag-card reveal">
+          <div class="diag-progress" data-diag-progress>
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <span class="diag-nav__step-label" data-diag-step-label>Etapa 1 de 6</span>
+
+          <form id="diag-form" data-wa-base="https://wa.me/5553991790766" novalidate>
+
+            <fieldset class="diag-step is-active" data-step="1">
+              <legend>Qual é o seu objetivo principal?</legend>
+              <div class="diag-options">
+                <label class="diag-option"><input type="radio" name="objetivo" value="Imóvel" required><span class="diag-option__mark"></span><span class="diag-option__label">Imóvel</span></label>
+                <label class="diag-option"><input type="radio" name="objetivo" value="Veículo"><span class="diag-option__mark"></span><span class="diag-option__label">Veículo</span></label>
+                <label class="diag-option"><input type="radio" name="objetivo" value="Caminhão"><span class="diag-option__mark"></span><span class="diag-option__label">Caminhão</span></label>
+                <label class="diag-option"><input type="radio" name="objetivo" value="Máquinas agrícolas"><span class="diag-option__mark"></span><span class="diag-option__label">Máquinas agrícolas</span></label>
+                <label class="diag-option"><input type="radio" name="objetivo" value="Empresa"><span class="diag-option__mark"></span><span class="diag-option__label">Empresa</span></label>
+                <label class="diag-option"><input type="radio" name="objetivo" value="Investimento"><span class="diag-option__mark"></span><span class="diag-option__label">Investimento</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="diag-step" data-step="2">
+              <legend>Qual o valor aproximado?</legend>
+              <div class="diag-options">
+                <label class="diag-option"><input type="radio" name="valor" value="Até R$ 50 mil"><span class="diag-option__mark"></span><span class="diag-option__label">Até R$ 50 mil</span></label>
+                <label class="diag-option"><input type="radio" name="valor" value="R$ 50 mil a R$ 150 mil"><span class="diag-option__mark"></span><span class="diag-option__label">R$ 50 mil a R$ 150 mil</span></label>
+                <label class="diag-option"><input type="radio" name="valor" value="R$ 150 mil a R$ 400 mil"><span class="diag-option__mark"></span><span class="diag-option__label">R$ 150 mil a R$ 400 mil</span></label>
+                <label class="diag-option"><input type="radio" name="valor" value="Acima de R$ 400 mil"><span class="diag-option__mark"></span><span class="diag-option__label">Acima de R$ 400 mil</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="diag-step" data-step="3">
+              <legend>Em quanto tempo pretende conquistar isso?</legend>
+              <div class="diag-options">
+                <label class="diag-option"><input type="radio" name="prazo" value="Até 12 meses"><span class="diag-option__mark"></span><span class="diag-option__label">Até 12 meses</span></label>
+                <label class="diag-option"><input type="radio" name="prazo" value="1 a 3 anos"><span class="diag-option__mark"></span><span class="diag-option__label">1 a 3 anos</span></label>
+                <label class="diag-option"><input type="radio" name="prazo" value="3 a 5 anos"><span class="diag-option__mark"></span><span class="diag-option__label">3 a 5 anos</span></label>
+                <label class="diag-option"><input type="radio" name="prazo" value="Mais de 5 anos"><span class="diag-option__mark"></span><span class="diag-option__label">Mais de 5 anos</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="diag-step" data-step="4">
+              <legend>Qual sua capacidade mensal de investimento?</legend>
+              <div class="diag-options">
+                <label class="diag-option"><input type="radio" name="capacidade" value="Até R$ 1.000"><span class="diag-option__mark"></span><span class="diag-option__label">Até R$ 1.000</span></label>
+                <label class="diag-option"><input type="radio" name="capacidade" value="R$ 1.000 a R$ 3.000"><span class="diag-option__mark"></span><span class="diag-option__label">R$ 1.000 a R$ 3.000</span></label>
+                <label class="diag-option"><input type="radio" name="capacidade" value="R$ 3.000 a R$ 8.000"><span class="diag-option__mark"></span><span class="diag-option__label">R$ 3.000 a R$ 8.000</span></label>
+                <label class="diag-option"><input type="radio" name="capacidade" value="Acima de R$ 8.000"><span class="diag-option__mark"></span><span class="diag-option__label">Acima de R$ 8.000</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="diag-step" data-step="5">
+              <legend>Como você se identifica?</legend>
+              <div class="diag-options">
+                <label class="diag-option"><input type="radio" name="perfil" value="Pessoa física"><span class="diag-option__mark"></span><span class="diag-option__label">Pessoa física</span></label>
+                <label class="diag-option"><input type="radio" name="perfil" value="Empresário(a)"><span class="diag-option__mark"></span><span class="diag-option__label">Empresário(a)</span></label>
+                <label class="diag-option"><input type="radio" name="perfil" value="Produtor(a) rural"><span class="diag-option__mark"></span><span class="diag-option__label">Produtor(a) rural</span></label>
+                <label class="diag-option"><input type="radio" name="perfil" value="Investidor(a)"><span class="diag-option__mark"></span><span class="diag-option__label">Investidor(a)</span></label>
+              </div>
+            </fieldset>
+
+            <div class="diag-step" data-step="6">
+              <span class="eyebrow diag-result__eyebrow">Estratégia sugerida</span>
+              <p class="diag-result__text" data-diag-result>Carregando sua sugestão…</p>
+
+              <div class="field">
+                <label for="diag-nome">Nome</label>
+                <input type="text" id="diag-nome" name="nome" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="diag-whatsapp">WhatsApp</label>
+                <input type="tel" id="diag-whatsapp" name="whatsapp" autocomplete="tel" placeholder="(00) 00000-0000" required>
+              </div>
+
+              <div class="diag-success" data-diag-success>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>
+                <p>Perfeito! Abrimos o WhatsApp com sua mensagem pronta.<br>Se não abriu automaticamente, <a data-diag-fallback-link href="#" target="_blank" rel="noopener">clique aqui</a>.</p>
+              </div>
+            </div>
+          </form>
+
+          <div class="diag-nav" data-diag-nav>
+            <button type="button" class="btn btn--outline-dark btn--sm" data-diag-back>Voltar</button>
+            <button type="button" class="btn btn--primary btn--sm" data-diag-next>Próximo</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= COMO FUNCIONA ============================= -->
+    <section class="section section--ivory" id="como-funciona">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Método</span>
+          <h2>Um processo claro, do diagnóstico à conquista.</h2>
+        </div>
+
+        <div class="steps reveal">
+          <div class="step"><span class="step-number">1</span><h3>Diagnóstico</h3><p>Entendemos seu momento, objetivo e capacidade.</p></div>
+          <div class="step"><span class="step-number">2</span><h3>Planejamento</h3><p>Estruturamos um plano sob medida para o seu patrimônio.</p></div>
+          <div class="step"><span class="step-number">3</span><h3>Estratégia</h3><p>Definimos o melhor caminho entre as opções disponíveis.</p></div>
+          <div class="step"><span class="step-number">4</span><h3>Simulação</h3><p>Você visualiza valores, prazos e cenários com clareza.</p></div>
+          <div class="step"><span class="step-number">5</span><h3>Acompanhamento</h3><p>Seguimos ao seu lado durante toda a jornada.</p></div>
+          <div class="step"><span class="step-number">6</span><h3>Conquista do Patrimônio</h3><p>O resultado de um plano bem executado.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= ESTRATÉGIAS (teaser) ============================= -->
+    <section class="section section--white" id="estrategias">
+      <div class="container">
+        <div class="section-head__row reveal">
+          <div class="section-head" style="margin-bottom:0">
+            <span class="eyebrow">Conteúdo estratégico</span>
+            <h2>Estratégias para cada objetivo.</h2>
+          </div>
+          <a class="link-arrow" href="estrategias.html">Ver todas as estratégias <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </div>
+
+        <div class="estrategias__grid reveal" style="margin-top: var(--space-5)">
+          <article class="card strategy-card">
+            <h3>Como sair do aluguel</h3>
+            <p>Um plano realista para deixar de pagar aluguel e começar a construir patrimônio próprio.</p>
+            <a class="link-arrow" href="estrategias.html#imoveis">Saiba mais</a>
+          </article>
+          <article class="card strategy-card">
+            <h3>Primeiro imóvel</h3>
+            <p>Como estruturar a compra do seu primeiro imóvel sem comprometer sua reserva financeira.</p>
+            <a class="link-arrow" href="estrategias.html#imoveis">Saiba mais</a>
+          </article>
+          <article class="card strategy-card">
+            <h3>Como trocar de caminhão</h3>
+            <p>Renove sua frota sem comprometer o fluxo de caixa da operação.</p>
+            <a class="link-arrow" href="estrategias.html#caminhoes">Saiba mais</a>
+          </article>
+          <article class="card strategy-card">
+            <h3>Máquinas agrícolas</h3>
+            <p>Um caminho estratégico para o produtor que está estruturando sua operação.</p>
+            <a class="link-arrow" href="estrategias.html#maquinas">Saiba mais</a>
+          </article>
+          <article class="card strategy-card">
+            <h3>Formação de patrimônio</h3>
+            <p>Um plano de longo prazo para quem quer construir patrimônio com consistência.</p>
+            <a class="link-arrow" href="estrategias.html#investimentos">Saiba mais</a>
+          </article>
+          <article class="card strategy-card">
+            <h3>Aquisição para empresas</h3>
+            <p>Equipamentos, veículos e imóveis comerciais dentro de uma estratégia corporativa.</p>
+            <a class="link-arrow" href="estrategias.html#empresas">Saiba mais</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= COMPARADOR ============================= -->
+    <section class="section section--ivory" id="comparador">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Sem modismos, só clareza</span>
+          <h2>Financiamento, consórcio ou à vista?</h2>
+          <p>Cada modalidade tem seu lugar. Entenda as diferenças antes de decidir.</p>
+        </div>
+
+        <div class="comp-table-wrap reveal">
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th scope="col">Critério</th>
+                <th scope="col">À vista</th>
+                <th scope="col">Financiamento</th>
+                <th scope="col">Consórcio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Entrada</th>
+                <td data-label="À vista">Não se aplica</td>
+                <td data-label="Financiamento">Normalmente exigida</td>
+                <td data-label="Consórcio">Não exigida (pode ofertar lance)</td>
+              </tr>
+              <tr>
+                <th scope="row">Custo total</th>
+                <td data-label="À vista">Menor custo total</td>
+                <td data-label="Financiamento">Acrescido de juros</td>
+                <td data-label="Consórcio">Taxa de administração, sem juros</td>
+              </tr>
+              <tr>
+                <th scope="row">Uso imediato do bem</th>
+                <td data-label="À vista">Imediato</td>
+                <td data-label="Financiamento">Imediato</td>
+                <td data-label="Consórcio">Após a contemplação</td>
+              </tr>
+              <tr>
+                <th scope="row">Flexibilidade</th>
+                <td data-label="À vista">Limitada ao capital disponível</td>
+                <td data-label="Financiamento">Sujeita à aprovação de crédito</td>
+                <td data-label="Consórcio">Planejada ao longo do prazo</td>
+              </tr>
+              <tr>
+                <th scope="row">Indicado para</th>
+                <td data-label="À vista">Quem tem capital disponível</td>
+                <td data-label="Financiamento">Quem precisa do bem imediatamente</td>
+                <td data-label="Consórcio">Quem planeja com antecedência</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="comp-note reveal">Não existe modalidade universalmente melhor — existe a mais estratégica para o seu momento. Fale com Rafael para entender qual se encaixa no seu caso.</p>
+      </div>
+    </section>
+
+    <!-- ============================= SOBRE (teaser) ============================= -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="sobre-teaser__grid reveal">
+          <div class="photo-frame" role="img" aria-label="Retrato de Rafael Pinheiro" data-caption="Retrato de Rafael Pinheiro">
+            <img src="assets/images/sobre-rafael.jpg" alt="Retrato de Rafael Pinheiro" loading="lazy">
+          </div>
+          <div class="sobre-teaser__content">
+            <span class="eyebrow">Quem conduz a estratégia</span>
+            <h2>Rafael Pinheiro</h2>
+            <p>Especialista em estratégias patrimoniais, Rafael ajuda famílias, empresários e produtores rurais a transformar objetivos em planos concretos — com clareza, método e visão de longo prazo.</p>
+            <a class="btn btn--outline-dark" href="sobre.html">Conhecer a história</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= DIFERENCIAIS ============================= -->
+    <section class="section section--ivory">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Diferenciais</span>
+          <h2>Mais do que indicar soluções. Construir estratégias.</h2>
+          <p>Cada recomendação é construída considerando objetivos, prazo, fluxo financeiro e impacto patrimonial de longo prazo.</p>
+        </div>
+
+        <div class="differentials-grid reveal">
+          <article class="card differential-card">
+            <h3>Visão Estratégica</h3>
+            <p>Cada decisão é analisada dentro de um planejamento patrimonial completo, e não de forma isolada.</p>
+          </article>
+          <article class="card differential-card">
+            <h3>Atendimento Consultivo</h3>
+            <p>O foco está em compreender sua realidade antes de recomendar qualquer caminho.</p>
+          </article>
+          <article class="card differential-card">
+            <h3>Planejamento de Longo Prazo</h3>
+            <p>Estratégias pensadas para preservar patrimônio e apoiar decisões consistentes ao longo dos anos.</p>
+          </article>
+          <article class="card differential-card">
+            <h3>Transparência</h3>
+            <p>Informações claras, sem promessas irreais e sempre respeitando as características de cada solução.</p>
+          </article>
+          <article class="card differential-card">
+            <h3>Personalização</h3>
+            <p>Não existem soluções padronizadas. Cada cliente possui objetivos e necessidades diferentes.</p>
+          </article>
+          <article class="card differential-card">
+            <h3>Relacionamento</h3>
+            <p>A consultoria continua após a decisão inicial, acompanhando a evolução dos seus objetivos patrimoniais.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= CONTEÚDO ============================= -->
+    <section class="section section--white" id="blog">
+      <div class="container">
+        <div class="section-head__row reveal">
+          <div class="section-head" style="margin-bottom:0">
+            <span class="eyebrow">Conteúdo</span>
+            <h2>Educação patrimonial, sem enrolação.</h2>
+          </div>
+          <a class="link-arrow" href="blog.html">Ver todos os artigos <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </div>
+
+        <div class="conteudo__grid reveal" style="margin-top: var(--space-5)">
+          <article class="card article-card">
+            <div class="photo-frame" role="img" aria-label="Ilustração sobre financiamento e consórcio" data-caption="Escritório moderno">
+              <img src="assets/images/blog-financiamento-consorcio.jpg" alt="" loading="lazy">
+            </div>
+            <div class="card__body">
+              <span class="tag">Financiamento</span>
+              <h3>Financiamento ou consórcio: qual escolher em 2026?</h3>
+              <p>Um comparativo direto entre as duas modalidades, sem viés — para você decidir com clareza.</p>
+            </div>
+          </article>
+          <article class="card article-card">
+            <div class="photo-frame" role="img" aria-label="Ilustração sobre sair do aluguel" data-caption="Família entrando em uma casa">
+              <img src="assets/images/blog-sair-do-aluguel.jpg" alt="" loading="lazy">
+            </div>
+            <div class="card__body">
+              <span class="tag">Imóveis</span>
+              <h3>Como sair do aluguel com planejamento</h3>
+              <p>O caminho realista para conquistar o primeiro imóvel sem comprometer o orçamento.</p>
+            </div>
+          </article>
+          <article class="card article-card">
+            <div class="photo-frame" role="img" aria-label="Ilustração sobre lance embutido" data-caption="Cliente assinando documentos">
+              <img src="assets/images/blog-lance-embutido.jpg" alt="" loading="lazy">
+            </div>
+            <div class="card__body">
+              <span class="tag">Consórcio</span>
+              <h3>Lance embutido: o que é e quando vale a pena</h3>
+              <p>Entenda como essa estratégia pode antecipar sua contemplação sem usar recursos extras.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= DEPOIMENTOS ============================= -->
+    <section class="section section--dark" id="depoimentos">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Quem já construiu estratégia</span>
+          <h2>Resultados que começam com um bom plano.</h2>
+        </div>
+
+        <div class="depoimentos__track reveal">
+          <blockquote class="depoimento">
+            <p class="depoimento__quote">Em poucos meses, saí do aluguel com um plano que realmente fazia sentido para o meu orçamento.</p>
+            <footer class="depoimento__author">
+              <span><span class="depoimento__name">Cliente A.M.</span><br><span class="depoimento__role">Depoimento ilustrativo — imóvel</span></span>
+            </footer>
+          </blockquote>
+          <blockquote class="depoimento">
+            <p class="depoimento__quote">Troquei minha frota sem comprometer o caixa da empresa. O planejamento fez toda a diferença.</p>
+            <footer class="depoimento__author">
+              <span><span class="depoimento__name">Cliente R.S.</span><br><span class="depoimento__role">Depoimento ilustrativo — caminhões</span></span>
+            </footer>
+          </blockquote>
+          <blockquote class="depoimento">
+            <p class="depoimento__quote">Pela primeira vez entendi todas as opções antes de decidir. Isso valeu mais do que qualquer taxa.</p>
+            <footer class="depoimento__author">
+              <span><span class="depoimento__name">Cliente L.F.</span><br><span class="depoimento__role">Depoimento ilustrativo — máquinas agrícolas</span></span>
+            </footer>
+          </blockquote>
+          <blockquote class="depoimento">
+            <p class="depoimento__quote">Rafael não vendeu uma cota — me ajudou a enxergar uma estratégia. Isso muda tudo.</p>
+            <footer class="depoimento__author">
+              <span><span class="depoimento__name">Cliente P.T.</span><br><span class="depoimento__role">Depoimento ilustrativo — patrimônio</span></span>
+            </footer>
+          </blockquote>
+        </div>
+        <div class="depoimentos__controls">
+          <button type="button" data-depo-prev aria-label="Depoimento anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8H3M7 4L3 8l4 4"/></svg></button>
+          <button type="button" data-depo-next aria-label="Próximo depoimento"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= FAQ ============================= -->
+    <section class="section section--white" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Dúvidas frequentes</span>
+          <h2>Perguntas que ouvimos com frequência.</h2>
+        </div>
+
+        <div class="faq__list reveal">
+          <details class="faq-item">
+            <summary>O consórcio tem juros?<span class="faq-icon"></span></summary>
+            <div class="faq-item__content"><p>Não. O consórcio não cobra juros como um financiamento tradicional. Existe uma taxa de administração, paga à administradora responsável por organizar o grupo — mas não há incidência de juros sobre o valor contratado.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Posso usar o FGTS?<span class="faq-icon"></span></summary>
+            <div class="faq-item__content"><p>Em consórcios de imóveis, sim — o FGTS pode ser usado para complementar um lance ou amortizar o saldo devedor após a contemplação, desde que a situação se enquadre nas regras vigentes. Rafael pode avaliar se o seu caso se enquadra.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>O que é lance?<span class="faq-icon"></span></summary>
+            <div class="faq-item__content"><p>É uma oferta feita para tentar antecipar a contemplação, usando recursos próprios (lance livre) ou um percentual pré-definido (lance fixo). Em alguns casos, também é possível utilizar o FGTS como parte do lance.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>O que é contemplação?<span class="faq-icon"></span></summary>
+            <div class="faq-item__content"><p>É o momento em que você é selecionado para receber a carta de crédito — por sorteio mensal ou por lance. A partir da contemplação, o valor pode ser utilizado conforme a finalidade do plano.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Como funciona a quitação?<span class="faq-icon"></span></summary>
+            <div class="faq-item__content"><p>Depois de contemplado, você pode optar por quitar antecipadamente o saldo devedor, se fizer sentido dentro da sua estratégia, ou seguir pagando as parcelas normalmente até o fim do plano.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Posso vender uma carta contemplada?<span class="faq-icon"></span></summary>
+            <div class="faq-item__content"><p>A transferência de uma carta contemplada é possível em algumas situações, mas depende das regras da administradora e precisa ser formalizada. Esse é um ponto que vale conversar diretamente com Rafael para entender as possibilidades no seu caso.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Posso usar o crédito para construção?<span class="faq-icon"></span></summary>
+            <div class="faq-item__content"><p>Sim. Muitos planos de consórcio de imóveis contemplam a categoria construção, permitindo usar o crédito para erguer o imóvel — geralmente liberado por etapas, conforme a obra avança.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Posso usar o crédito para reforma?<span class="faq-icon"></span></summary>
+            <div class="faq-item__content"><p>Depende do plano contratado e da administradora, mas existem opções de consórcio com essa finalidade. O ideal é alinhar isso já no diagnóstico inicial, para escolher a carta certa desde o começo.</p></div>
+          </details>
+        </div>
+        <p class="comp-note reveal" style="margin-top: var(--space-4)">As regras de consórcio podem variar entre administradoras e estão sujeitas às normas do Banco Central. As informações acima têm caráter geral — fale com Rafael para orientações específicas para o seu caso.</p>
+      </div>
+    </section>
+
+    <!-- ============================= CTA FINAL ============================= -->
+    <section class="section cta-final">
+      <div class="container reveal">
+        <h2>O próximo passo do seu patrimônio começa com uma conversa.</h2>
+        <p>Sem compromisso. Sem pressão. Só clareza.</p>
+        <a href="https://wa.me/5553991790766" class="btn btn--primary js-wa-link" data-wa-message="Olá, Rafael! Quero dar o próximo passo na construção do meu patrimônio.">Falar no WhatsApp</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= RODAPÉ ============================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <span class="brand__name">RAFAEL PINHEIRO</span>
+          <p>Estratégias patrimoniais para famílias, empresários e produtores rurais. O consórcio como uma das ferramentas do seu planejamento.</p>
+          <div class="footer__social">
+            <a href="https://instagram.com/seuinstagram" target="_blank" rel="noopener" aria-label="Instagram de Rafael Pinheiro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+          </div>
+          <p class="footer__note">YouTube em breve.</p>
+        </div>
+        <div>
+          <h2 class="footer__heading">Contato</h2>
+          <ul>
+            <li><a href="https://wa.me/5553991790766" class="js-wa-link" data-wa-message="Olá, Rafael! Vim pelo site e gostaria de falar com você.">WhatsApp</a></li>
+            <li><a href="mailto:contato@seudominio.com.br">contato@seudominio.com.br</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer__heading">Navegação</h2>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="estrategias.html">Estratégias</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="blog.html">Conteúdo</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer__heading">Escritório</h2>
+          <ul>
+            <li>Atendimento em todo o Brasil</li>
+            <li>Presencial mediante agendamento</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2026</span> Rafael Pinheiro — Estratégias Patrimoniais. Todos os direitos reservados.</span>
+        <span>Planejamento patrimonial · Consórcio como ferramenta de estratégia</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/simulator.js" defer></script>
+</body>
+</html>
