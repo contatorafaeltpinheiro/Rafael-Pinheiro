@@ -1,0 +1,246 @@
+/* ==========================================================================
+   components.css — Peças reutilizáveis da interface
+   ========================================================================== */
+
+/* Utilitários --------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-2);
+  top: -80px;
+  background: var(--c-black);
+  color: var(--c-white);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  z-index: 999;
+  transition: top var(--t-fast);
+}
+.skip-link:focus { top: var(--space-2); }
+
+/* Revelação suave ao rolar (usada com animations.js) ------------------------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity var(--t-slow), transform var(--t-slow); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* Eyebrow (rótulo pequeno acima dos títulos) ---------------------------------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--c-graphite-500);
+  margin-bottom: var(--space-2);
+}
+.eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 2px;
+  background: var(--c-gold-deep);
+  display: inline-block;
+}
+.section--dark .eyebrow { color: var(--c-gold); }
+.section--dark .eyebrow::before { background: var(--c-gold); }
+
+/* Botões ------------------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: .9rem 1.75rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: .02em;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  transition: background var(--t-base), color var(--t-base), border-color var(--t-base), transform var(--t-fast);
+  white-space: nowrap;
+}
+.btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+.btn:active { transform: translateY(1px); }
+
+.btn--primary { background: var(--c-green-900); color: var(--c-white); }
+.btn--primary:hover { background: var(--c-green-700); }
+
+.btn--outline-light { background: transparent; color: var(--c-white); border-color: rgba(255,255,255,.55); }
+.btn--outline-light:hover { border-color: var(--c-white); background: rgba(255,255,255,.08); }
+
+.btn--outline-dark { background: transparent; color: var(--c-graphite-900); border-color: var(--c-graphite-900); }
+.btn--outline-dark:hover { background: var(--c-graphite-900); color: var(--c-white); }
+
+.btn--sm { padding: .65rem 1.25rem; font-size: var(--fs-xs); }
+.btn--block { width: 100%; }
+.btn[disabled] { opacity: .5; cursor: not-allowed; }
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--c-graphite-900);
+  border-bottom: 1px solid var(--c-gold-deep);
+  padding-bottom: 2px;
+  transition: gap var(--t-fast), color var(--t-fast);
+}
+.link-arrow:hover { gap: .65rem; color: var(--c-green-900); }
+.link-arrow svg { width: 14px; height: 14px; }
+
+/* Cards -------------------------------------------------------------------------- */
+.card {
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: box-shadow var(--t-base), transform var(--t-base), border-color var(--t-base);
+}
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); border-color: transparent; }
+.card__body { padding: var(--space-3); }
+.card__title { font-family: var(--font-serif); font-size: var(--fs-h4); font-weight: 600; margin-bottom: var(--space-1); }
+.card__text { color: var(--c-graphite-500); font-size: var(--fs-small); line-height: var(--lh-relaxed); }
+
+/* Photo frame — placeholder elegante com fallback automático --------------------- */
+.photo-frame {
+  position: relative;
+  background: linear-gradient(135deg, var(--c-graphite-700) 0%, var(--c-black) 100%);
+  overflow: hidden;
+  isolation: isolate;
+}
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo-frame::after {
+  content: attr(data-caption);
+  position: absolute;
+  left: var(--space-2);
+  bottom: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: .6875rem;
+  letter-spacing: .03em;
+  color: rgba(255,255,255,.65);
+  background: rgba(11,11,13,.4);
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+  backdrop-filter: blur(2px);
+}
+.photo-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(201,169,97,.25);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Badges / tags --------------------------------------------------------------------- */
+.tag {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--c-graphite-900);
+  background: var(--c-gold-tint);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+.tag--muted { background: var(--c-graphite-100); color: var(--c-graphite-500); }
+
+/* Formulários ------------------------------------------------------------------------ */
+.field { margin-bottom: var(--space-3); text-align: left; }
+.field label {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--c-graphite-500);
+  margin-bottom: var(--space-1);
+}
+.field input, .field select, .field textarea {
+  width: 100%;
+  padding: .85rem 1rem;
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-body);
+  color: var(--c-graphite-900);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: none;
+  border-color: var(--c-green-900);
+  box-shadow: 0 0 0 3px rgba(18,51,42,.12);
+}
+.field textarea { resize: vertical; min-height: 120px; }
+.field-hint { font-size: var(--fs-xs); color: var(--c-graphite-300); margin-top: 4px; }
+.field-error { font-size: var(--fs-xs); color: var(--c-error); margin-top: 4px; display: none; }
+.field.is-invalid input, .field.is-invalid select, .field.is-invalid textarea { border-color: var(--c-error); }
+.field.is-invalid .field-error { display: block; }
+
+/* FAQ — accordion nativo (details/summary), sem necessidade de JS -------------------- */
+.faq-item { border-bottom: 1px solid var(--c-line); padding: var(--space-3) 0; }
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-family: var(--font-serif);
+  font-size: var(--fs-h4);
+  font-weight: 500;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary .faq-icon {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border: 1px solid var(--c-graphite-300);
+  border-radius: 50%;
+  position: relative;
+  transition: transform var(--t-base), border-color var(--t-base);
+}
+.faq-item summary .faq-icon::before, .faq-item summary .faq-icon::after {
+  content: '';
+  position: absolute;
+  background: var(--c-graphite-900);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+}
+.faq-item summary .faq-icon::before { width: 10px; height: 1px; }
+.faq-item summary .faq-icon::after { width: 1px; height: 10px; transition: opacity var(--t-fast); }
+.faq-item[open] summary .faq-icon { border-color: var(--c-gold-deep); transform: rotate(180deg); }
+.faq-item[open] summary .faq-icon::after { opacity: 0; }
+.faq-item__content { padding-top: var(--space-2); color: var(--c-graphite-500); line-height: var(--lh-relaxed); max-width: 62ch; }
+
+/* Números da seção "Como Funciona" --------------------------------------------------- */
+.step-number { display: block; font-family: var(--font-serif); font-size: 1.75rem; color: var(--c-gold-deep); margin-bottom: var(--space-1); }
+
+/* Callout — nota destacada para o cliente preencher depois --------------------------- */
+.callout {
+  border: 1px dashed var(--c-graphite-300);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  font-size: var(--fs-small);
+  color: var(--c-graphite-500);
+  font-style: italic;
+  background: rgba(201,169,97,.05);
+}

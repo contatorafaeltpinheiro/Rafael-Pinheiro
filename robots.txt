@@ -1,0 +1,80 @@
+/* ==========================================================================
+   RAFAEL PINHEIRO — Estratégias Patrimoniais
+   variables.css — Tokens de design (cores, tipografia, espaçamento, etc.)
+   Referência visual: BlackRock, Goldman Sachs, Morgan Stanley, JP Morgan
+   Private Bank, Itaú Personnalité, BTG Pactual, XP Private, WSJ.
+   ========================================================================== */
+
+:root {
+  /* ---- Cores — Base (preto / cinza grafite / branco) -------------------- */
+  --c-black: #0B0B0D;
+  --c-graphite-900: #18181B;
+  --c-graphite-700: #2E2E32;
+  --c-graphite-500: #5B5B61;
+  --c-graphite-300: #9A9AA0;
+  --c-graphite-100: #D9D7D2;
+  --c-line: #E4E1DA;
+  --c-ivory: #F7F5F0;
+  --c-white: #FFFFFF;
+
+  /* ---- Cores — Dourado discreto (SEMPRE em acentos, nunca em áreas grandes) */
+  --c-gold: #C9A961;        /* texto/ícones sobre fundo escuro */
+  --c-gold-deep: #9C7D3E;   /* bordas, marcadores e preenchimentos pequenos sobre fundo claro */
+  --c-gold-tint: #F1E8D2;   /* fundo suave para badges/tags */
+
+  /* ---- Cores — Verde escuro (reservado para ações/CTAs) ------------------ */
+  --c-green-900: #12332A;
+  --c-green-700: #1B4A3B;
+
+  /* ---- Estado -------------------------------------------------------------- */
+  --c-error: #A6453D;
+
+  /* ---- Tipografia ------------------------------------------------------------ */
+  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --fs-h1: clamp(2.5rem, 4.5vw + 1rem, 4.25rem);
+  --fs-h2: clamp(2rem, 2.5vw + 1rem, 3rem);
+  --fs-h3: clamp(1.375rem, 1vw + 1rem, 1.75rem);
+  --fs-h4: 1.25rem;
+  --fs-lead: clamp(1.0625rem, .5vw + 1rem, 1.25rem);
+  --fs-body: 1rem;
+  --fs-small: .875rem;
+  --fs-xs: .75rem;
+
+  --lh-tight: 1.15;
+  --lh-snug: 1.35;
+  --lh-normal: 1.6;
+  --lh-relaxed: 1.75;
+
+  /* ---- Espaçamento (escala base 8px) ------------------------------------------ */
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+  --space-8: 8rem;
+
+  /* ---- Layout ------------------------------------------------------------------- */
+  --container-max: 1240px;
+  --container-pad: clamp(1.25rem, 4vw, 3rem);
+
+  /* ---- Bordas e sombras ------------------------------------------------------------ */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --shadow-sm: 0 1px 2px rgba(11,11,13,.06);
+  --shadow-md: 0 12px 32px rgba(11,11,13,.08);
+  --shadow-lg: 0 24px 56px rgba(11,11,13,.16);
+
+  /* ---- Transições ------------------------------------------------------------------- */
+  --ease: cubic-bezier(.4,0,.2,1);
+  --t-fast: 180ms var(--ease);
+  --t-base: 280ms var(--ease);
+  --t-slow: 480ms var(--ease);
+
+  /* ---- Camadas ---------------------------------------------------------------------- */
+  --z-header: 100;
+  --z-overlay: 200;
+}
